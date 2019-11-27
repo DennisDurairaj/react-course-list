@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const webpack = require('webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -34,14 +35,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
-        use: ['ts-loader']
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.(\.css)$/,

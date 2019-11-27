@@ -17,13 +17,14 @@
     "react-toastify": "4.5.2",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
-    "reselect": "4.0.0",
-    "typescript": "^3.7.2"
+    "reselect": "4.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",
     "babel-preset-react-app": "7.0.2",
@@ -33,6 +34,7 @@
     "enzyme-adapter-react-16": "1.11.2",
     "eslint": "5.15.2",
     "eslint-loader": "2.1.2",
+    "eslint-plugin-functional": "^1.0.0",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-react": "7.12.4",
     "fetch-mock": "7.3.1",
@@ -53,6 +55,7 @@
     "ts-loader": "^6.2.1",
     "tslint": "^5.20.1",
     "tslint-immutable": "^6.0.1",
+    "typescript": "^3.7.2",
     "webpack": "4.29.6",
     "webpack-bundle-analyzer": "3.1.0",
     "webpack-cli": "3.3.0",
@@ -67,5 +70,60 @@
       "@babel/preset-typescript",
       "babel-preset-react-app"
     ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:functional/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+    "rules": {
+      "no-debugger": "off",
+      "no-console": "off",
+      "no-unused-vars": "warn",
+      "react/prop-types": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "functional/immutable-data": "error",
+      "functional/no-let": "error",
+      "functional/no-method-signature": "error",
+      "functional/prefer-readonly-type": "error",
+      "functional/no-class": "error",
+      "functional/no-mixed-type": "error",
+      "functional/no-this-expression": "warn",
+      "functional/prefer-type-literal": "warn",
+      "functional/no-conditional-statement": "off",
+      "functional/no-expression-statement": "off",
+      "functional/no-loop-statement": "off",
+      "functional/no-return-void": "off",
+      "functional/promise-reject": "off",
+      "functional/no-throw-statement": "off",
+      "functional/no-try-statement": "off"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "root": true
   }
 }
