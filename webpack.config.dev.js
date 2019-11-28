@@ -1,7 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-const webpack = require('webpack');
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+/* eslint-disable import/no-extraneous-dependencies */
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 process.env.NODE_ENV = 'development';
 
@@ -13,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
     stats: 'minimal',
@@ -21,28 +20,28 @@ module.exports = {
     historyApiFallback: true,
     disableHostCheck: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    https: false
+    https: false,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      favicon: 'src/favicon.ico'
-    })
+      favicon: 'src/favicon.ico',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
+        use: ['babel-loader', 'eslint-loader'],
       },
       {
         test: /\.(\.css)$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  }
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 };
